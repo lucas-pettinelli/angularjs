@@ -7,7 +7,6 @@ angular.module('app').component('productGrid', {
 		vm.error = null;
 		vm.isMaster = AuthService.isMaster;
 
-		// Use nomes minúsculos para compatibilidade com backend
 		vm.form = { id: null, nome: '', valor: 0 };
 		vm.mode = 'list';
 
@@ -16,7 +15,7 @@ angular.module('app').component('productGrid', {
 			vm.error = null;
 			ProductService.list()
 				.then(data => (vm.items = data))
-				.catch(() => (vm.error = 'Erro ao carregar produtos'))
+				.catch(() => (vm.error = 'Erro ao carregar os produtos'))
 				.finally(() => (vm.loading = false));
 		};
 
@@ -36,7 +35,7 @@ angular.module('app').component('productGrid', {
 			if (!vm.isMaster()) return;
 			let dto = {
 				nome: vm.form.nome,
-				valor: parseFloat(vm.form.valor), // Garante número com ponto
+				valor: parseFloat(vm.form.valor),
 			};
 			const action =
 				vm.mode === 'create' ? ProductService.create(dto) : ProductService.update(vm.form.id, dto);
@@ -50,10 +49,10 @@ angular.module('app').component('productGrid', {
 
 		vm.remove = function (p) {
 			if (!vm.isMaster()) return;
-			if (!confirm('Excluir produto?')) return;
+			if (!confirm('Tem certeza que quer Excluir o produto?')) return;
 			ProductService.remove(p.id)
 				.then(vm.load)
-				.catch(() => (vm.error = 'Falha ao excluir'));
+				.catch(() => (vm.error = 'Houve uma falha ao excluir o produto'));
 		};
 
 		vm.$onInit = vm.load;

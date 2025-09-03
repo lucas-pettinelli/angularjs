@@ -1,1 +1,1 @@
-angular.module('app').controller('ContactController', function(){});
+angular.module('app').controller('ContactController', function () {});

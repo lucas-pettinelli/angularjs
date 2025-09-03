@@ -1,1 +1,1 @@
-angular.module('app').controller('AboutController', function(){});
+angular.module('app').controller('AboutController', function () {});
