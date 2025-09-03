@@ -1,11 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hello, World!</h1>
-</body>
+<!doctype html>
+<html lang="en" ng-app="app">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+		/>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.3/angular-route.min.js"></script>
+
+		<link rel="stylesheet" href="./styles/index.css" />
+	</head>
+
+	<body class="bg-light">
+		<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+			<div class="container">
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#navbarContent"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link active" href="#!/home">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#!/quem-somos">Quem Somos</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#!/contato">Contato</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#!/login">Sou Cliente</a>
+						</li>
+					</ul>
+					<div class="d-flex" ng-controller="NavController as nav">
+						<span class="text-white me-3" ng-if="nav.isAuthenticated()">Olá, {{nav.role}}</span>
+						<button
+							class="btn btn-outline-light btn-sm"
+							ng-if="nav.isAuthenticated()"
+							ng-click="nav.logout()"
+						>
+							Sair
+						</button>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<main class="container py-4">
+			<div ng-view></div>
+		</main>
+
+		<script src="./modules/module.js"></script>
+		
+		<script src="./constants/constants.js"></script>
+		
+		<script src="./routes/routes.js"></script>
+
+		<script src="./run/run.js"></script>
+		
+		<script src="./interceptors/auth.interceptor.js"></script>
+		
+		<script src="./services/product.service.js"></script>
+		<script src="./services/auth.service.js"></script>
+		
+		<script src="./controllers/login.controller.js"></script>
+		<script src="./controllers/home.controller.js"></script>
+		<script src="./controllers/about.controller.js"></script>
+		<script src="./controllers/contact.controller.js"></script>
+		
+		<script src="./components/product-grid/product-grid-component.js"></script>
+
+		<script>
+			angular.module('app').controller('NavController', function (AuthService, $location) {
+				var vm = this;
+				vm.isAuthenticated = () => AuthService.isAuthenticated();
+				vm.role = AuthService.getRole();
+				vm.logout = () => {
+					AuthService.logout();
+					$location.path('/login');
+				};
+			});
+		</script>
+
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+	</body>
 </html>

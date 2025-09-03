@@ -1,0 +1,1 @@
+angular.module('app').constant('API_URL', 'http://localhost:5138/api/v1');
