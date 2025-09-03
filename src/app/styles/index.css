@@ -73,6 +73,95 @@ main.container {
   height: 100vh;
   object-fit: cover;
 }
+
+.product-grid-container {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(44,44,44,0.08);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 900px;
+}
+
+.product-grid-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.product-grid-header h3 {
+  margin: 0;
+  font-weight: bold;
+  color: #1c2939;
+}
+
+.table-striped th, .table-striped td {
+  vertical-align: middle !important;
+  text-align: left;
+}
+
+.table-striped th {
+  background: #fff !important;
+  color: #1c2939;
+  font-weight: 600;
+}
+
+.table-striped td {
+  background: #fff !important;
+}
+
+.btn-success {
+  background-color: #25d181 !important;
+  border-color: #25d181 !important;
+  color: #fff !important;
+  font-weight: 500;
+}
+
+.btn-outline-primary, .btn-outline-danger {
+  min-width: 70px;
+}
+
+.alert-danger {
+  margin-bottom: 1rem;
+}
+
+.card {
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(44,44,44,0.08);
+}
+
+.card-title {
+  color: #1c2939;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #1c2939;
+}
+
+.form-control {
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.mt-3 {
+  margin-top: 1.5rem !important;
+}
+
+@media (max-width: 767.98px) {
+  .product-grid-container {
+    padding: 1rem;
+    margin: 1rem;
+    max-width: 100%;
+  }
+  .card {
+    margin: 0;
+  }
+}
+
 @media (max-width: 767.98px) {
   .login-img {
     display: none !important;
