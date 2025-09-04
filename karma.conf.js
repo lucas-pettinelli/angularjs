@@ -19,11 +19,11 @@ module.exports = function (config) {
 			// DEPOIS: serviços e interceptors
 			'src/app/services/*.service.js',
 			'src/app/interceptors/*.interceptor.js',
-      
-      // DEPOIS: run block
+
+			// DEPOIS: run block
 			'src/app/run/run.js',
 
-      // DEPOIS: controllers
+			// DEPOIS: controllers
 			'src/app/controllers/*.controller.js',
 
 			'src/app/components/**/*.js',

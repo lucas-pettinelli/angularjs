@@ -1,4 +1,6 @@
 # Desafio Front-end - Consumo de API
+### Interface - Home
+![Interface da página inicial e de login](https://i.imgur.com/CUu5HRg.png)
 
 ## Descrição
 Este projeto é parte do desafio técnico para desenvolvedor Frontend.
