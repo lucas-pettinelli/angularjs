@@ -18,7 +18,7 @@ angular.module('app')
               <p class="text-muted text-right">Faça login para acessar seus produtos.</p>
               <form ng-submit="vm.submit()">
                 <div class="mb-3">
-                  <label class="form-label">E-mail</label>
+                  <label class="form-label">Nome</label>
                   <input type="text" class="form-control" ng-model="vm.usuario" required>
                 </div>
                 <div class="mb-3">
